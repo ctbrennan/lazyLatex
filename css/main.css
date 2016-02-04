@@ -95,8 +95,25 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+#parentResult {
+  display: block;
+}
 
-
+#result
+{
+    width: 100%;
+}
+#resultForm
+{
+    width: 100%;
+    overflow: hidden;
+    background-color: lime; 
+}
+#resultSpan {
+    display: block;
+    overflow: hidden;
+    padding-right:10px;
+}
 
 
 
