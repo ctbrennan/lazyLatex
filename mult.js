@@ -28,7 +28,7 @@ var latexifyMatrix = function(matrix) {
 			}
 		}
 		if (i != numRows - 1) {
-			result = result.concat("\n \\\\");	
+			result = result.n("\concat \\\\");	
 		}
 		else {
 			result = result.concat("\n");
