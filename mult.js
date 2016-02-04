@@ -1,18 +1,29 @@
 $(document).ready(function() {
     $('#submitButton').click(function() {
-      input($('#inputMatrix1').val(), $('#inputMatrix2').val());
+      var op = $('input[name="operation"]:checked').val();
+      //console.log(op);      
+      input($('#inputMatrix1').val(), $('#inputMatrix2').val(), op);
       return false;
     });
 });
-var input = function(l, r) {
+
+var input = function(l, r, op) {
 	var lmat = JSON.parse(l)
 	var rmat = JSON.parse(r)
-	var product = math.multiply(lmat, rmat);
 	var latexL = latexifyMatrix(lmat);
 	var latexR = latexifyMatrix(rmat);
-	var latexProd = latexifyMatrix(product);
-	var equation = equationLatex(latexL, latexR, latexProd, 'mul');
-	//console.log(equation);
+	var result = 0;
+	if (op === 'mul') {
+		result = math.multiply(lmat, rmat);
+	}
+	if (op === 'add') {
+		result = math.add(lmat, rmat);
+	}
+	if (op === 'sub') {
+		result = math.subtract(lmat, rmat);
+	}
+	var latexResult = latexifyMatrix(result);
+	var equation = equationLatex(latexL, latexR, latexResult, op);
 	$("#result").val(equation);
 }
 
@@ -28,7 +39,7 @@ var latexifyMatrix = function(matrix) {
 			}
 		}
 		if (i != numRows - 1) {
-			result = result.n("\concat \\\\");	
+			result = result.concat("\n \\\\");	
 		}
 		else {
 			result = result.concat("\n");
@@ -41,13 +52,19 @@ var latexifyMatrix = function(matrix) {
 }
 var equationLatex = function(m1, m2, m3, op) {
 	var result = "$";
+	result = result.concat(m1);
 	if (op === 'mul') {
-		result = result.concat(m1);
 		result = result.concat("\n*\n");
-		result = result.concat(m2);
-		result = result.concat("\n=");
-		result = result.concat(m3);
 	}
+	if (op === 'add') {
+		result = result.concat("\n+\n");
+	}
+	if (op === 'sub') {
+		result = result.concat("\n-\n");
+	}
+	result = result.concat(m2);
+	result = result.concat("\n=");
+	result = result.concat(m3);
 	return result.concat("$");
 }
 
