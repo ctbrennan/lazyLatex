@@ -30,6 +30,25 @@
             Resultant Matrix Latex:
             <span id = 'resultSpan'><input type="text" name="result" id="result"></span>
         </form>
+
+        <!-- below this line begins work on piecewise function formatting-->
+        <form>
+          <input type="radio" name="operation" value="equation" checked> Full Equation<br>
+          <input type="radio" name="operation" value="expr"> Expression<br>
+        </form>
+        <form>
+            Input function below:<br>
+            <input type="text" name="funcLetter" id="inputFuncLetter"><br>
+            <input type="text" name="part1" id="inputPart1">
+            <input type="text" name="part2" id="inputPart2">
+            <input type="text" name="part3" id="inputPart3">
+            <input type="submit" value="SubmitFunc"id="submitButton2">
+        </form>
+        <form id = 'resultForm'>
+            Resultant Matrix Latex:
+            <span id = 'resultSpan'><input type="text" name="result" id="result"></span>
+        </form>
+
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
