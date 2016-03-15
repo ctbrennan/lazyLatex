@@ -1,2 +1,2 @@
 # lazyLatex
-lazyLatex is a work in progress which currently adds, subtracts, and multiplies matrices. Input is given in nested array format, and answers are returned as formatted latex for the entire equation. 
+lazyLatex is a work in progress which currently adds, subtracts, and multiplies matrices. Input is given in nested array format, and answers are returned as formatted latex for the entire equation. Next to be completed is auto re-formatting of piecewise functions so that they're easier to input quickly. After that is completed I'll start stylizing the web page and adding more functionality. 

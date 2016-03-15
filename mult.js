@@ -75,3 +75,4 @@ var equationLatex = function(m1, m2, m3, op) {
        0           & \frac{5}{6} & \frac{1}{6}
      \end{bmatrix}
      ***/
+
