@@ -1,0 +1,124 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script type="text/javascript">
+          function updateSlider(val) {
+            document.getElementById('textInput').value=val;
+            for (i = 3; i <= 10; i++) {
+                var id = "#div".concat(i.toString());
+                console.log(id);
+                if (i > val) {
+                    $(id).hide();
+                }
+                else {
+                    $(id).show();
+                }
+            }
+
+          }
+        </script>
+    </head>
+    <body>
+        <script>
+            updateSlider(2);
+        </script>
+        <form>
+          <input type="radio" name="operation" value="equation" checked> Full Equation<br>
+          <input type="radio" name="operation" value="expr"> Expression<br>
+        </form>
+
+        <input id="numFunc" type="range" min="2" max="10" step="1" defaultValue="2" onchange="updateSlider(this.value);"/>
+        <input type="text" id="textInput" value="2" />
+        <div>
+            <form>
+                letter: <input type="text" name="funcLetter" id="inputFuncLetter"><br>
+                function 1: <input type="text" name="func1" id="inputPart1">
+                bounds: <input type="text" name="bound1" id="bound1"><br>
+                function 2: <input type="text" name="func2" id="inputPart2">
+                bounds: <input type="text" name="bound2" id="bound2"><br>
+            </form>
+        </div>
+        <div  id= "div3">
+            <form>
+                function 3: <input type="text" name="func3" id="inputPart3">
+                bounds: <input type="text" name="bound3" id="bound3"><br>
+            </form>
+        </div>
+        <div  id= "div4">
+            <form>
+                function 4: <input type="text" name="func4" id="inputPart4">
+                bounds: <input type="text" name="bound4" id="bound4"><br>
+            </form>
+        </div>
+        <div  id= "div5">
+            <form>
+                function 5: <input type="text" name="func5" id="inputPart5">
+                bounds: <input type="text" name="bound5" id="bound5"><br>
+            </form>
+        </div>
+        <div  id= "div6">
+            <form>
+                function 6: <input type="text" name="func6" id="inputPart6">
+                bounds: <input type="text" name="bound6" id="bound6"><br>
+            </form>
+        </div>
+        <div  id= "div7">
+            <form>
+                function 7: <input type="text" name="func7" id="inputPart7">
+                bounds: <input type="text" name="bound7" id="bound7"><br>
+            </form>
+        </div>
+        <div  id= "div8">
+            <form>
+                function 8: <input type="text" name="func8" id="inputPart8">
+                bounds: <input type="text" name="bound8" id="bound8"><br>
+            </form>
+        </div>
+        <div  id= "div9">
+            <form>
+                function 9: <input type="text" name="func9" id="inputPart9">
+                bounds: <input type="text" name="bound9" id="bound9"><br>
+            </form>
+        </div>
+        <div  id= "div10">
+            <form>
+                function 10: <input type="text" name="func10" id="inputPart10">
+                bounds: <input type="text" name="bound10" id="bound10"><br>
+            </form>
+        </div>
+        <form>
+            <input type="submit" value="Submit Functions"id="submitButton"><br>
+        </form>
+
+        <form id = 'resultForm'>
+            Resultant Piece Latex:
+            <span id = 'resultSpan'><input type="text" name="result" id="result"></span>
+        </form>
+        <!-- boundary boundary boundary boundary boundary boundary boundary boundary boundary boundary boundary boundary boundary boundary boundary-->
+        
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <script type="text/javascript" src="math.min.js"></script>
+        <script type="text/javascript" src="piecewise.js"></script>
+        <!-- Add your site or application content here -->
+
+
+
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,5 +1,6 @@
 $(document).ready(function() {
-    $('#submitButton2').click(function() {
+    updateSlider(2);
+    $('#submitButton').click(function() {
       var op = $('input[name="operation"]:checked').val();
       //console.log(op);      
       input($('#inputFuncLetter').val(), $('#inputPart1').val(), $('#inputPart2').val(), $('#inputPart3').val(), op);
@@ -11,22 +12,6 @@ var input = function(funcLetter, piece1, piece2, piece3, op) {
 	var p1 = JSON.parse(piece1);
 	var p2 = JSON.parse(piece2);
 	var p3 = JSON.parse(piece3);
-	"""
-	var latexL = latexifyMatrix(lmat);
-	var latexR = latexifyMatrix(rmat);
-	var result = 0;
-	if (op === 'mul') {
-		result = math.multiply(lmat, rmat);
-	}
-	if (op === 'add') {
-		result = math.add(lmat, rmat);
-	}
-	if (op === 'sub') {
-		result = math.subtract(lmat, rmat);
-	}
-	var latexResult = latexifyMatrix(result);
-	var equation = equationLatex(latexL, latexR, latexResult, op);
-	"""
 	$("#result").val(equation);
 }
 
