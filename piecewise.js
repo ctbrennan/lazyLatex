@@ -1,8 +1,20 @@
 $(document).ready(function() {
     updateSlider(2);
     $('#submitButton').click(function() {
-      var op = $('input[name="operation"]:checked').val();
-      //console.log(op);      
+      var numFunc = $('input[name="numFunc"]').val();
+      //console.log(numFunc);      
+      var funcBoundPairs = [];
+      for (i = 1; i <= numFunc; i++) {
+      	var funcId = "#inputFunc";
+      	funcId.concat(i.toString());
+      	var boundId = "#bound";
+      	funcId.concat(i.toString());
+      	var func = $(funcId);
+      	var bound = $(boundId);
+      	var pair = [func, bound];
+      	funcBoundPairs.push(pair);
+      }
+      //console.log(funcBoundPairs);
       input($('#inputFuncLetter').val(), $('#inputPart1').val(), $('#inputPart2').val(), $('#inputPart3').val(), op);
       return false;
     });

@@ -3,7 +3,7 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Connor Brennan -- The Only Dude -- <twitter>
 
 # THANKS
 

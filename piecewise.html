@@ -17,7 +17,6 @@
             document.getElementById('textInput').value=val;
             for (i = 3; i <= 10; i++) {
                 var id = "#div".concat(i.toString());
-                console.log(id);
                 if (i > val) {
                     $(id).hide();
                 }
@@ -38,62 +37,62 @@
           <input type="radio" name="operation" value="expr"> Expression<br>
         </form>
 
-        <input id="numFunc" type="range" min="2" max="10" step="1" defaultValue="2" onchange="updateSlider(this.value);"/>
+        <input id="numFunc" name ="numFunc" type="range" min="2" max="10" step="1" value="2" onchange="updateSlider(this.value);"/>
         <input type="text" id="textInput" value="2" />
         <div>
             <form>
                 letter: <input type="text" name="funcLetter" id="inputFuncLetter"><br>
-                function 1: <input type="text" name="func1" id="inputPart1">
+                function 1: <input type="text" name="func1" id="inputFunc1">
                 bounds: <input type="text" name="bound1" id="bound1"><br>
-                function 2: <input type="text" name="func2" id="inputPart2">
+                function 2: <input type="text" name="func2" id="inputFunc2">
                 bounds: <input type="text" name="bound2" id="bound2"><br>
             </form>
         </div>
         <div  id= "div3">
             <form>
-                function 3: <input type="text" name="func3" id="inputPart3">
+                function 3: <input type="text" name="func3" id="inputFunc3">
                 bounds: <input type="text" name="bound3" id="bound3"><br>
             </form>
         </div>
         <div  id= "div4">
             <form>
-                function 4: <input type="text" name="func4" id="inputPart4">
+                function 4: <input type="text" name="func4" id="inputFunc4">
                 bounds: <input type="text" name="bound4" id="bound4"><br>
             </form>
         </div>
         <div  id= "div5">
             <form>
-                function 5: <input type="text" name="func5" id="inputPart5">
+                function 5: <input type="text" name="func5" id="inputFunc5">
                 bounds: <input type="text" name="bound5" id="bound5"><br>
             </form>
         </div>
         <div  id= "div6">
             <form>
-                function 6: <input type="text" name="func6" id="inputPart6">
+                function 6: <input type="text" name="func6" id="inputFunc6">
                 bounds: <input type="text" name="bound6" id="bound6"><br>
             </form>
         </div>
         <div  id= "div7">
             <form>
-                function 7: <input type="text" name="func7" id="inputPart7">
+                function 7: <input type="text" name="func7" id="inputFunc7">
                 bounds: <input type="text" name="bound7" id="bound7"><br>
             </form>
         </div>
         <div  id= "div8">
             <form>
-                function 8: <input type="text" name="func8" id="inputPart8">
+                function 8: <input type="text" name="func8" id="inputFunc8">
                 bounds: <input type="text" name="bound8" id="bound8"><br>
             </form>
         </div>
         <div  id= "div9">
             <form>
-                function 9: <input type="text" name="func9" id="inputPart9">
+                function 9: <input type="text" name="func9" id="inputFunc9">
                 bounds: <input type="text" name="bound9" id="bound9"><br>
             </form>
         </div>
         <div  id= "div10">
             <form>
-                function 10: <input type="text" name="func10" id="inputPart10">
+                function 10: <input type="text" name="func10" id="inputFunc10">
                 bounds: <input type="text" name="bound10" id="bound10"><br>
             </form>
         </div>
