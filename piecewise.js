@@ -5,67 +5,55 @@ $(document).ready(function() {
       //console.log(numFunc);      
       var funcBoundPairs = [];
       for (i = 1; i <= numFunc; i++) {
-      	var funcId = "#inputFunc";
-      	funcId.concat(i.toString());
-      	var boundId = "#bound";
-      	funcId.concat(i.toString());
+      	var funcId = "#inputFunc".concat(i.toString());
+      	var boundId = "#bound".concat(i.toString());
       	var func = $(funcId);
       	var bound = $(boundId);
       	var pair = [func, bound];
       	funcBoundPairs.push(pair);
       }
       //console.log(funcBoundPairs);
-      input($('#inputFuncLetter').val(), $('#inputPart1').val(), $('#inputPart2').val(), $('#inputPart3').val(), op);
+      input($("#inputFuncLetter"), $("#inputVars"), numFunc, funcBoundPairs);
       return false;
     });
 });
 
-var input = function(funcLetter, piece1, piece2, piece3, op) {
-	var p1 = JSON.parse(piece1);
-	var p2 = JSON.parse(piece2);
-	var p3 = JSON.parse(piece3);
-	$("#result").val(equation);
+var input = function(funcLetter, inputVars, numFunc, funcBoundPairs) {
+	var funcLetter = JSON.parse(inputFuncLetter);
+	var vars = JSON.parse(inputVars);
+	var stringPairs = [];
+	for (i = 0; i < numFunc; i++) {
+		var func = JSON.parse(funcBoundPairs[i][0]);
+		var bound = JSON.parse(funcBoundPairs[i][1]);
+		stringPairs.push([func, bound]);
+	}
+	var latexResult = latexifyFunc(letter, vars, numFunc, stringPairs);
+	$("#result").val(latexResult);
 }
 
-var latexifyFunc = function(func) {
-	var numRows = matrix.length;
-	var numCols = matrix[0].length;
-	var result = "\\begin{bmatrix}\n   ";
-	for (var i = 0; i < numRows; i++) {
-		for (var j = 0; j < numCols; j++) {
-			result = result.concat(matrix[i][j].toString());
-			if (j != numCols - 1) {
-				result = result.concat(' & ');
-			}
-		}
-		if (i != numRows - 1) {
-			result = result.concat("\n \\\\");	
-		}
-		else {
-			result = result.concat("\n");
-		}
-
+var latexifyFunc = function(funcLetter, vars, numFunc, stringPairs) {
+	var result = "\\[\n   ";
+	result.concat(funcLetter);
+	result.concat("(".concat(vars.concat(")")));
+	result.concat("\n \\begin{cases}");
+	for (var i = 0; i < numFunc; i++) {
+		var expression = latexifyExpr(stringPairs[i][0]);
+		var bounds = latexifyBounds(stringPairs[i][1]);
+		result.concat("\n \\hfill ");
+		result.concat(expression);
+		result.concat("\\hfill &");
+		result.concat(bounds);
 	}
-	result = result.concat("\\end{bmatrix}")
+	result = result.concat("\\end{cases}");
+	result.concat("\n \\]")
 	return result;
 	//window.alert(result);
 }
-var equationLatex = function(m1, m2, m3, op) {
-	var result = "$";
-	result = result.concat(m1);
-	if (op === 'mul') {
-		result = result.concat("\n*\n");
-	}
-	if (op === 'add') {
-		result = result.concat("\n+\n");
-	}
-	if (op === 'sub') {
-		result = result.concat("\n-\n");
-	}
-	result = result.concat(m2);
-	result = result.concat("\n=");
-	result = result.concat(m3);
-	return result.concat("$");
+var latexifyBounds = function(boundString){
+
+}
+var latexifyExpr = function(exprString){
+	
 }
 
 
