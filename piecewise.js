@@ -38,24 +38,70 @@ var latexifyFunc = function(funcLetter, vars, numFunc, stringPairs) {
 	result.concat("\n \\begin{cases}");
 	for (var i = 0; i < numFunc; i++) {
 		var expression = latexifyExpr(stringPairs[i][0]);
-		var bounds = latexifyBounds(stringPairs[i][1]);
+		var bounds = latexifyBounds(stringPairs[i][1], vars);
 		result.concat("\n \\hfill ");
 		result.concat(expression);
 		result.concat("\\hfill &");
 		result.concat(bounds);
+		result.concat("\\\\\n");//Dunno about this
 	}
 	result = result.concat("\\end{cases}");
 	result.concat("\n \\]")
 	return result;
 	//window.alert(result);
 }
-var latexifyBounds = function(boundString){
-
+var latexifyBounds = function(boundString, vars){
+	var inclusiveLower = boundString.charAt(0) === "[";
+	var inclusiveUpper = boundString.charAt(boundString.length - 1) === "]";
+	var boundArr = boundString.substring(1, boundString.length-1).split(",");
+	var boundVar = vars.split(",")[0]; 
+	var result = "".concat(boundArr[0]);
+	if (inclusiveLower){
+		result.concat(" \\leq ".append(boundVar));
+	}
+	else {
+		result.concat(" < ".append(boundVar));
+	}
+	if (inclusiveUpper){
+		result.concat(" \\leq ".append(boundArr[1]));
+	}
+	else {
+		result.concat(" < ".append(boundArr[1]));
+	}
+	result.concat(boundString[1]);
+	return result;
 }
 var latexifyExpr = function(exprString){
 	
 }
 
+"""
+replace slashes with \frac
+"""
+var cleanInput = function(expr){
+	var lowerIndex = 0;
+	var index = str.indexOf("\/");
+	while (index !== -1) {
+		var reversed = reverseString(expr.substring(lowerIndex, index + 1));\
+		var numerator = reverseString(parseFirstNumber(reversed));
+
+		var fractionNumerator = expr.substring(lowerIndex, index).split("/")[0];
+	}
+	
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+function parseFirstNumber(str){
+	var i = 0;
+	var result = ""
+	while (!isNan(parseInt(str[i]))){
+		result.append(str[i]);
+		i += 1;
+	}
+	return result;
+}
 
 /***
 \[
