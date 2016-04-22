@@ -78,14 +78,15 @@ var latexifyExpr = function(exprString){
 """
 replace slashes with \frac
 """
-var cleanInput = function(expr){
+var replaceSlashes = function(expr){
 	var lowerIndex = 0;
 	var index = str.indexOf("\/");
 	while (index !== -1) {
-		var reversed = reverseString(expr.substring(lowerIndex, index + 1));\
+		var reversed = reverseString(expr.substring(lowerIndex, index));\
 		var numerator = reverseString(parseFirstNumber(reversed));
-
-		var fractionNumerator = expr.substring(lowerIndex, index).split("/")[0];
+		var denominator = parseFirstNumber(expr.substring(index + 1, expr.length);
+		expr.replace(numerator, "\\frac{".append(numerator).concat("}{"));
+		expr.replace(denominator, denominator.concat("}"));
 	}
 	
 }
@@ -94,8 +95,9 @@ function reverseString(str) {
     return str.split('').reverse().join('');
 }
 function parseFirstNumber(str){
+	str = str.trim();
+	var result = "";
 	var i = 0;
-	var result = ""
 	while (!isNan(parseInt(str[i]))){
 		result.append(str[i]);
 		i += 1;
